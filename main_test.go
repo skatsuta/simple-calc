@@ -8,8 +8,6 @@ type testCase struct {
 }
 
 func TestInt(t *testing.T) {
-	t.Skip()
-
 	tests := []testCase{
 		{"0", 0},
 		{"42", 42},
@@ -19,9 +17,8 @@ func TestInt(t *testing.T) {
 }
 
 func TestAddSub(t *testing.T) {
-	t.Skip()
-
 	tests := []testCase{
+		// [<5> <+> <20> <-> <4>]
 		{"5 + 20 - 4", 21},
 		{"12 + 34 - 5", 41},
 		{"  1  + 2 -3  +   4-  5  ", -1},
@@ -31,9 +28,13 @@ func TestAddSub(t *testing.T) {
 }
 
 func TestMulDiv(t *testing.T) {
-	t.Skip()
-
 	tests := []testCase{
+		// ([<5> <+> (<6> <*> <7>)])
+		//        +
+		//       / \
+		//      5   *
+		//         / \
+		//        6   7
 		{"5 + 6 * 7", 47},
 		{"10 - 4 / 2", 8},
 		{"6 + 5 * 4 - 9 / 3", 23},
